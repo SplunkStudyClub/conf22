@@ -39,15 +39,25 @@ LINE_BREAKER=([\r\n]+) AUDIENCE PROBING
 LINE_BREAKER=([\r\n]+)\w+\s\d+\s\d+\s\d+:\d+:\d+\s\w{4}\s
 
 Timestamp
+
 Extraction = Advanced
+
 TimeZone = GMT
+
 TIME_FORMAT=%b %d %Y %H:%M:%S
+
 TIME_PREFIX=^
+
 MAX_TIMESTAMP_LOOKAHEAD=20
+
 Advanced
+
 TRUNCATE=99999
+
 EVENT_BREAKER = ([\r\n]+)\w+\s\d+\s\d+\s\d+:\d+:\d+\s\w{4}\s
+
 EVENT_BREAKER_ENABLE = true
+
 
 Command Line in All in One Splunk Server
 ```
