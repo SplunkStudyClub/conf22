@@ -33,8 +33,11 @@ vi  /var/log/palo_endpoint.log
 
 Splunk UI
 Event Breaks
+
 LINE_BREAKER=([\r\n]+) AUDIENCE PROBING
+
 LINE_BREAKER=([\r\n]+)\w+\s\d+\s\d+\s\d+:\d+:\d+\s\w{4}\s
+
 Timestamp
 Extraction = Advanced
 TimeZone = GMT
