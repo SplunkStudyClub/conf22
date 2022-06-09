@@ -18,17 +18,19 @@ Install - Start to Finish
 ```
 cd /tmp/
 ```
-```wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"```
+```
+wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"
+```
 #Alternatively, scp the installation file to the server if there is no internet connectivity
 
 
-```sudo tar -xvzf splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz -C /opt/```
+``` sudo tar -xvzf splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz -C /opt/ ```
 
-```sudo adduser splunk```
+``` sudo adduser splunk ```
 
-```cat /etc/passwd | grep splunk```
+``` cat /etc/passwd | grep splunk ```
 
-```sudo /opt/splunk/bin/splunk start --accept-license --answer-yes```
+``` sudo /opt/splunk/bin/splunk start --accept-license --answer-yes ```
 
 ```sudo /opt/splunk/bin/splunk stop```
 
