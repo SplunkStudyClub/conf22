@@ -3,13 +3,14 @@
 ## Commands needed for Study Club Session
 
 ### Use the following command via a ssh client to connect to the lab jump server
-copy from your email message that had subject line "GAS: Your Study Club for Splunk .conf22 Lab environment is ready"
+### copy from your email message that had subject line "GAS: Your Study Club for Splunk .conf22 Lab environment is ready"
 
-### The command would look similar to "ssh username@002-Ja8Am7G5ehFh-study-club-lab-2-jumpbox.bitsioservices.com"
+The command would look similar to "ssh username@002-Ja8Am7G5ehFh-study-club-lab-2-jumpbox.bitsioservices.com"
 
 ### Once connected to the jump box, use SSH again to connect to the Splunk All in One server listed below.
 
-copy from your email message that had subject line "GAS: Your Study Club for Splunk .conf22 Lab environment is ready"
+### copy from your email message that had subject line "GAS: Your Study Club for Splunk .conf22 Lab environment is ready"
+
 The command would look similar to "ssh username@002-Ja8Am7G5ehFh-study-club-lab-2-jumpbox.bitsioservices.com"
 ```
 sudo su - splunk 
