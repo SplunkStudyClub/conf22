@@ -1,10 +1,10 @@
-#Session 1: How to Install Splunk Products Like an Ace Student
+# Session 1: How to Install Splunk Products Like an Ace Student
 
-##This lab is designed to take a fresh Linux instance and use Splunk best practices to configure Splunk. We are going to go over connecting to your client via ssh, why you should create a Splunk user, installing Splunk, checking permission and starting your Splunk instance.
+## This lab is designed to take a fresh Linux instance and use Splunk best practices to configure Splunk. We are going to go over connecting to your client via ssh, why you should create a Splunk user, installing Splunk, checking permission and starting your Splunk instance.
 
 
-Instructions
-wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"
+### Instructions
+```wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"```
 
 wget -O splunk-8.2.6-a6fe1ee8894b-x64-release.msi "https://download.splunk.com/products/splunk/releases/8.2.6/windows/splunk-8.2.6-a6fe1ee8894b-x64-release.msi"
 
@@ -15,30 +15,30 @@ wget -O splunkforwarder-8.2.6-a6fe1ee8894b-x64-release.msi "https://download.spl
 wget -O splunkforwarder-8.2.6-a6fe1ee8894b-linux-2.6-x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/8.2.6/linux/splunkforwarder-8.2.6-a6fe1ee8894b-linux-2.6-x86_64.rpm"
 
 Install - Start to Finish
-
+```
 cd /tmp/
-
-wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"
+```
+```wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"```
 #Alternatively, scp the installation file to the server if there is no internet connectivity
 
 
-sudo tar -xvzf splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz -C /opt/
+```sudo tar -xvzf splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz -C /opt/```
 
-sudo adduser splunk
+```sudo adduser splunk```
 
-cat /etc/passwd | grep splunk
+```cat /etc/passwd | grep splunk```
 
-sudo /opt/splunk/bin/splunk start --accept-license --answer-yes
+```sudo /opt/splunk/bin/splunk start --accept-license --answer-yes```
 
-sudo /opt/splunk/bin/splunk stop
+```sudo /opt/splunk/bin/splunk stop```
 
-sudo /opt/splunk/bin/splunk enable boot-start -user splunk -systemd-managed 1
+```sudo /opt/splunk/bin/splunk enable boot-start -user splunk -systemd-managed 1```
 
-sudo chown -R splunk:splunk /opt/splunk
+```sudo chown -R splunk:splunk /opt/splunk```
 
-sudo /opt/splunk/bin/splunk start
+```sudo /opt/splunk/bin/splunk start```
 
-sudo vi /etc/systemd/system/Splunkd.service
+```sudo vi /etc/systemd/system/Splunkd.service```
 
 ##### Delete original LimitNOFILE and replace with below###
 
@@ -59,7 +59,7 @@ LimitNOFILE=1024000
 LimitNPROC=512000
 TasksMax=infinity
 
-sudo vi /etc/systemd/system/disable-thp.service
+```sudo vi /etc/systemd/system/disable-thp.service```
 
 [Unit]
 Description=Disable Transparent Huge Pages (THP)
@@ -71,15 +71,16 @@ ExecStart=/bin/sh -c "echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
 [Install]
 WantedBy=multi-user.target
 
-sudo chmod 755 /etc/systemd/system/disable-thp.service
+```sudo chmod 755 /etc/systemd/system/disable-thp.service```
 
-sudo systemctl daemon-reload
+```sudo systemctl daemon-reload```
 
-sudo systemctl start disable-thp
+```sudo systemctl start disable-thp```
 
-sudo systemctl enable disable-thp
+```sudo systemctl enable disable-thp```
 
-sudo reboot
+```sudo reboot```
+
 #NOTE: You “technically” don’t have to reboot Linux. However, to ensure Splunk comes back up properly after an outage, it is a good step to take for a Splunk Enterprise installation. This should be a new instance with nothing else running on it, so it should not be impactful as it has yet to enter production. 
 
 ##Check Your Install Post Reboot##
