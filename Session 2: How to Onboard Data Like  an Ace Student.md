@@ -7,7 +7,7 @@
 
 The command would look similar to "ssh username@002-Ja8Am7G5ehFh-study-club-lab-2-jumpbox.bitsioservices.com"
 
-### Once connected to the jump box, use SSH again to connect to the Splunk All in One server listed below.
+### Once connected to the jump box, use SSH again to connect to the Splunk All in One server.
 
 ### copy from your email message that had subject line "GAS: Your Study Club for Splunk .conf22 Lab environment is ready"
 
