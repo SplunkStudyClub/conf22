@@ -1,23 +1,34 @@
-Session 2: How to Onboard Data Like an Ace Student
+# Session 2: How to Onboard Data Like an Ace Student
 
-Commands needed for Study Club Session
+## Commands needed for Study Club Session
 
-Use the following command via a ssh client to connect to the lab jump server
+### Use the following command via a ssh client to connect to the lab jump server
 copy from your email message that had subject line "GAS: Your Study Club for Splunk .conf22 Lab environment is ready"
 
-The command would look similar to "ssh username@002-Ja8Am7G5ehFh-study-club-lab-2-jumpbox.bitsioservices.com"
+### The command would look similar to "ssh username@002-Ja8Am7G5ehFh-study-club-lab-2-jumpbox.bitsioservices.com"
 
-Once connected to the jump box, use SSH again to connect to the Splunk All in One server listed below.
+### Once connected to the jump box, use SSH again to connect to the Splunk All in One server listed below.
 
 copy from your email message that had subject line "GAS: Your Study Club for Splunk .conf22 Lab environment is ready"
 The command would look similar to "ssh username@002-Ja8Am7G5ehFh-study-club-lab-2-jumpbox.bitsioservices.com"
-
+```
 sudo su - splunk 
+```
+```
 cat  /var/log/palo_endpoint.log
+```
+```
 exit
+```
+```
 sudo setfacl -m u:splunk:rw /var/log/palo_endpoint.log
+```
+```
 sudo su - splunk 
+```
+```
 vi  /var/log/palo_endpoint.log
+```
 
 Splunk UI
 Event Breaks
@@ -35,11 +46,21 @@ EVENT_BREAKER = ([\r\n]+)\w+\s\d+\s\d+\s\d+:\d+:\d+\s\w{4}\s
 EVENT_BREAKER_ENABLE = true
 
 Command Line in All in One Splunk Server
+```
 sudo su - splunk 
+```
 use btool to find props.conf file 
+```
 /opt/splunk/bin/splunk btool props list --debug | grep pan:endpoint
+```
+```
 cat  /opt/splunk/etc/apps/search/local/props.conf
+```
 
 use btool to find inputs.conf file 
+```
 /opt/splunk/bin/splunk btool inputs list --debug | grep pan:endpoint
+```
+```
 cat  /opt/splunk/etc/apps/search/local/inputs.conf
+```
