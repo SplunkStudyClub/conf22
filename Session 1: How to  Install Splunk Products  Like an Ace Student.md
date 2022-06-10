@@ -122,18 +122,11 @@ After reboot checklist
 
 Verify that Splunk is running
 
-Did required disks mount correctly?
-
 Is THP Disabled?
 
 Are ulimits set?
 
 Is splunk running as the non-root (splunk) user?
 
-Is it forwarding data (if required)?
-
-Is it phoning home (if required)?
-
-Can it connect to the other instances it needs to connect to (if required)?
 
 
