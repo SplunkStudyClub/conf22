@@ -119,12 +119,15 @@ sudo reboot
 After reboot checklist
 
 Verify that Splunk is running
+Access web front end
 
 Is THP Disabled?
-
+Run health check in monitoring console
 Are ulimits set?
 
-Is splunk running as the non-root (splunk) user?
+Run health check in monitoring console
 
+Is splunk running as the non-root (splunk) user?
+ps -ef | grep splunk
 
 
