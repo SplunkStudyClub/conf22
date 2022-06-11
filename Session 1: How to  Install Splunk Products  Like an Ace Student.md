@@ -4,9 +4,7 @@
 
 
 ### Instructions
-```
 wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"
-```
 
 wget -O splunk-8.2.6-a6fe1ee8894b-x64-release.msi "https://download.splunk.com/products/splunk/releases/8.2.6/windows/splunk-8.2.6-a6fe1ee8894b-x64-release.msi"
 
