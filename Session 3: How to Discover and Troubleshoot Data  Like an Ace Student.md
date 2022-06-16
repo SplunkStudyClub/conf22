@@ -1,4 +1,4 @@
-Session 3: How to Discover and Troubleshoot Data Like an Ace Student
+# Session 3: How to Discover and Troubleshoot Data Like an Ace Student
 
 # Search for your onboarded data
 index=study_club source="/var/log/palo_endpoint.log"
@@ -7,7 +7,7 @@ index=study_club source="/var/log/palo_endpoint.log"
 index=_internal TAILREADER file="'/var/log/palo_endpoint.log'"
 
 # connect to the command line
-use the SSL instructions int he email
+use the SSL instructions in the Study Club email
 
 # change to splunk user
 sudo su - splunk
@@ -22,19 +22,26 @@ sudo su - splunk
  ```
  
 # try to read the log file
+```
 cat /var/log/palo_endpoint.log
- 
+ ```
 # exit from splunk user
+```
 exit
-
+```
 # all access to Splunk user
+```
 sudo setfacl -m u:splunk:rw /var/log/palo_endpoint.log
-
+```
 # change to splunk user
+```
 sudo su - splunk
+```
 
 # list file permissions
+```
 ll /var/log
+```
 
 # open log file in VI
 ```
@@ -43,14 +50,16 @@ vi  /var/log/palo_endpoint.log
 ```
 
 # Check status of fishbucket
+```
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log
-
+```
 # restart Splunk
+```
 /opt/splunk/bin/splunk restart
+```
 
 # Search for your onboarded data
 index=study_club
-
 
 
 # Problem 2 sourcetype was set to palo_alto_logs rather than pan:config
@@ -67,10 +76,14 @@ index=study_club
 ```
 
 # Check status of fishbucket
+```
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log
+```
 
 # Stop Splunk
+```
 /opt/splunk/bin/splunk stop
+```
 
 # Clear out fishbucket 
 ```
