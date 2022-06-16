@@ -113,7 +113,7 @@ disabled=false
 TIME_FORMAT=%b %d %Y %H:%M:%S
 TIME_PREFIX=^
 TRUNCATE=99999
-
+```
 # Exit and Save
 :x
 
