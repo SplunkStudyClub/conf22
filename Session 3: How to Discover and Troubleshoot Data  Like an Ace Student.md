@@ -37,9 +37,10 @@ sudo su - splunk
 ll /var/log
 
 # open log file in VI
+```
 vi  /var/log/palo_endpoint.log
 :q! to (quit VI)
-
+```
 
 # Check status of fishbucket
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log
@@ -56,10 +57,14 @@ index=study_club
 # DISCOVERY
 
 # check location of inputs.conf
+```
 /opt/splunk/bin/splunk btool inputs list --debug | grep palo
+```
 
 # check location of props.conf
+```
 /opt/splunk/bin/splunk btool props list --debug | grep palo
+```
 
 # Check status of fishbucket
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log
@@ -68,17 +73,21 @@ index=study_club
 /opt/splunk/bin/splunk stop
 
 # Clear out fishbucket 
+```
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log --reset
-
+```
 # Check status of fishbucket
+```
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log
-
+```
 # Don't Start Splunk Yet
 
 # display props.conf
+```
 cat /opt/splunk/etc/apps/studyClub_all_props/default/props.conf
-
+```
 # Create a new sourcetype in correct folder
+```
 cd /opt/splunk/etc/apps/studyClub_all_props
 ll
 mkdir local
@@ -87,12 +96,13 @@ ll
 cp props.conf ../local/props.conf
 cd ../local
 ll
+```
 
 # open props.conf in VI 
-'''
+```
 vi props.conf
 i
-'''
+```
 # Props Settings - Update sourcetype palo_alto_logs to pan:config
 ```
 [pan:config]
@@ -141,11 +151,13 @@ disabled = false
 :x
 
 # Start Splunk (ensure you are splunk user)
+```
 /opt/splunk/bin/splunk start
-
+```
 # Check status of fishbucket
+```
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log
-
+```
 # Search for log data
 index=study_club source="/var/log/paloconfig.log"
 
