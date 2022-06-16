@@ -21,7 +21,7 @@ cd /tmp/
 ```
 wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"
 ```
-### Alternatively, scp the installation file to the server if there is no internet connectivity
+### Alternatively, scp the installation file to the server depending on the install scenario
 
 
 ``` 
