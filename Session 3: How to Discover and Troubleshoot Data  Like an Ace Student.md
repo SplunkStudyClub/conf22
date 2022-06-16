@@ -16,8 +16,10 @@ sudo su - splunk
 /opt/splunk/bin/splunk list inputstatus
 
 # check for issues via REST
+```
 /opt/splunk/bin/splunk _internal/opt/splunk/bin/splunk _internal call /services/admin/inputstatus/TailingProcessor:FileStatus
  call /services/admin/inputstatus/TailingProcessor:FileStatus
+ ```
  
 # try to read the log file
 cat /var/log/palo_endpoint.log
@@ -119,6 +121,7 @@ TRUNCATE=99999
 
 
 # Update Inputs.conf - the sourcetype for paloconfig.log from palo_alto_logs to pan:config
+```
 cd /opt/splunk/etc/apps/studyClub_all_inputs/local
 ll
 vi inputs.conf
@@ -132,7 +135,7 @@ disabled = false
 index = study_club
 sourcetype = pan:endpoint
 disabled = false
-
+```
 # Exit and Save
 :x
 
@@ -148,15 +151,21 @@ index=study_club source="/var/log/paloconfig.log"
 # Note that log in duplicated
 
 # need to add the can_delete role to the splunk UI admin account 
+```
 index=study_club source="/var/log/paloconfig.log" sourcetype=palo_alto_logs | delete
 index=study_club source="/var/log/paloconfig.log"
+```
 
 # need to remove the can_delete role to the splunk UI admin account 
 
 # useful commands
+```
 head -c256 /var/log/paloconfig.log
 tail -n 3 /opt/splunk/var/log/splunk/splunkd.log
+```
 
 # see what user splunk is running under
+```
 ps -ef | grep splunk
 kill -9 <PID> 
+```
