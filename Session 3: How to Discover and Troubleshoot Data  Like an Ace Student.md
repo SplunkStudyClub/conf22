@@ -29,7 +29,7 @@ cat /var/log/palo_endpoint.log
 ```
 exit
 ```
-# all access to Splunk user
+# allow access to Splunk user account
 ```
 sudo setfacl -m u:splunk:rw /var/log/palo_endpoint.log
 ```
