@@ -1,23 +1,54 @@
 Session 3: How to Discover and Troubleshoot Data Like an Ace Student
 
+#Search for your onboarded data
 index=study_club source="/var/log/palo_endpoint.log"
+
+#Check the tailreader for issues reported
 index=_internal TAILREADER file="'/var/log/palo_endpoint.log'"
+
+#connect to the command line
+use the SSL instructions int he email
+
+#change to splunk user
 sudo su - splunk
+
+#check for issues on Splunk's inputstatus
 /opt/splunk/bin/splunk list inputstatus
+
+#check for issues via REST
 /opt/splunk/bin/splunk _internal/opt/splunk/bin/splunk _internal call /services/admin/inputstatus/TailingProcessor:FileStatus
  call /services/admin/inputstatus/TailingProcessor:FileStatus
- cat /var/log/palo_endpoint.log
- exit
+ 
+#try to read the log file
+cat /var/log/palo_endpoint.log
+ 
+#exit from splunk user
+exit
+
+#all access to Splunk user
 sudo setfacl -m u:splunk:rw /var/log/palo_endpoint.log
+
+#change to splunk user
 sudo su - splunk
+
+#list file permissions
 ll /var/log
-sudo su - splunk 
+
+#open log file in VI
 vi  /var/log/palo_endpoint.log
 :q! to (quit VI)
-Check status of fishbucket
+
+
+#Check status of fishbucket
 /opt/splunk/bin/splunk cmd btprobe -d /opt/splunk/var/lib/splunk/fishbucket/splunk_private_db/ --file /var/log/paloconfig.log
+
+#restart Splunk
 /opt/splunk/bin/splunk restart
+
+#Search for your onboarded data
 index=study_club
+
+
 
 Problem 2
 /opt/splunk/bin/splunk btool inputs list --debug | grep palo
