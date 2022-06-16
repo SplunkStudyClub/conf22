@@ -89,9 +89,10 @@ cd ../local
 ll
 
 # open props.conf in VI 
+'''
 vi props.conf
 i
-
+'''
 # Props Settings - Update sourcetype palo_alto_logs to pan:config
 ```
 [pan:config]
