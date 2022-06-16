@@ -152,10 +152,10 @@ index=study_club source="/var/log/paloconfig.log"
 
 # need to remove the can_delete role to the splunk UI admin account 
 
-head -n 3 /var/log/paloconfig.log
+# useful commands
+head -c256 /var/log/paloconfig.log
 tail -n 3 /opt/splunk/var/log/splunk/splunkd.log
 
 # see what user splunk is running under
 ps -ef | grep splunk
 kill -9 <PID> 
-
