@@ -53,7 +53,7 @@ sudo chown -R splunk:splunk /opt/splunk
 ```
 
 ```
-sudo /opt/splunk/bin/splunk start
+sudo -u splunk /opt/splunk/bin/splunk start
 ```
 
 ```
