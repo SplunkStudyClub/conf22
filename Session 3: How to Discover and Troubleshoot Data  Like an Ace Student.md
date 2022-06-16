@@ -7,7 +7,8 @@ index=study_club source="/var/log/palo_endpoint.log"
 index=_internal TAILREADER file="'/var/log/palo_endpoint.log'"
 
 # connect to the command line
-use the SSL instructions in the Study Club email
+use the SSH
+instructions in the Study Club email
 
 # change to splunk user
 sudo su - splunk
