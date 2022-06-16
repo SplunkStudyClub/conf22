@@ -91,6 +91,7 @@ vi props.conf
 i
 
 # Props Settings - Update sourcetype palo_alto_logs to pan:config
+```
 [pan:config]
 SHOULD_LINEMERGE=false
 LINE_BREAKER=([\r\n]+)\w+\s\d+\s\d+\s\d+:\d+:\d+\s\w{4}\s
